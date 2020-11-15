@@ -5,11 +5,10 @@ import { SafeAreaView, Text, NativeModules } from 'react-native';
 const Settings = () => {
   const [serviceKey, setSerivceKey] = useState('');
 
-  if (Platform.OS === 'ios') {
-    NativeModules.ServiceKey.getServiceKey(pListServiceKey => {
-      setSerivceKey(pListServiceKey);
+  if (Platform.OS === 'ios' || Platform.OS === 'android') {
+    NativeModules.ServiceKey.getServiceKey(serviceKeyFromNative => {
+      setSerivceKey(serviceKeyFromNative);
     });
-  } else if (Platform.OS === 'android') {
   }
 
   return (
