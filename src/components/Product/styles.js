@@ -3,6 +3,16 @@ import { StyleSheet } from 'react-native';
 export const ProductStyles = StyleSheet.create({
   productContainer: {
     aspectRatio: 4 / 3,
+    marginHorizontal: 6,
+  },
+  productImageContainer: {
+    flex: 1,
+    overflow: 'hidden',
+    borderRadius: 8,
+  },
+  productInnerContainer: {
+    flex: 1,
+    width: '100%',
   },
   productImage: {
     position: 'absolute',
