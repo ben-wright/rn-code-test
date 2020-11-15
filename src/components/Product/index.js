@@ -29,7 +29,12 @@ const Product = props => {
     <TouchableWithoutFeedback
       style={styles.productContainer}
       onPress={() => {
-        navigation.navigate('Market', { screen: 'SingleProduct' });
+        navigation.navigate('Market', {
+          screen: 'SingleProduct',
+          params: {
+            product: data,
+          },
+        });
       }}
       onPressIn={onPressIn}
       onPressOut={onPressOut}>
