@@ -3,7 +3,8 @@ import { SafeAreaView, FlatList, StyleSheet, Text, View } from 'react-native';
 import Product from '../../components/Product';
 import products from '../../../assets/products.json';
 
-const Market = () => {
+const Market = props => {
+  const { navigation } = props;
   let productCategories = {};
   products.forEach(product => {
     if (product.category in productCategories) {
@@ -21,7 +22,9 @@ const Market = () => {
           showsHorizontalScrollIndicator={false}
           horizontal
           data={item}
-          renderItem={data => <Product data={data.item} />}
+          renderItem={data => (
+            <Product data={data.item} navigation={navigation} />
+          )}
           keyExtractor={(item, index) => index.toString()}
         />
       </View>

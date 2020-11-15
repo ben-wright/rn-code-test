@@ -10,7 +10,7 @@ import { ProductStyles as styles } from './styles';
 import { getProductPrice } from './helper';
 
 const Product = props => {
-  const { data } = props;
+  const { data, navigation } = props;
   const [imageZoom, setImageZoom] = useState(new Animated.Value(1));
 
   const onPressIn = () => {
@@ -28,6 +28,9 @@ const Product = props => {
   return (
     <TouchableWithoutFeedback
       style={styles.productContainer}
+      onPress={() => {
+        navigation.navigate('Market', { screen: 'SingleProduct' });
+      }}
       onPressIn={onPressIn}
       onPressOut={onPressOut}>
       <View style={[styles.productContainer, styles.productInnerContainer]}>
