@@ -8,6 +8,7 @@ import {
   ScrollView,
   Text,
 } from 'react-native';
+import { getProductPrice } from '../../components/Product/helper';
 
 const SingleProduct = ({ route, navigation }) => {
   const { product } = route.params;
@@ -31,7 +32,7 @@ const SingleProduct = ({ route, navigation }) => {
       <SafeAreaView>
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{product.name}</Text>
-          <Text>{product.price}</Text>
+          {getProductPrice(product, { color: 'black', marginBottom: 12 })}
           <Text>{product.description}</Text>
         </View>
       </SafeAreaView>

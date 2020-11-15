@@ -6,7 +6,7 @@ export const formatPrice = price => {
   return '£' + String((price / 100).toFixed(2));
 };
 
-export const getProductPrice = productData => {
+export const getProductPrice = (productData, styleOverride) => {
   let priceToReturn = productData.price;
 
   if (productData.discount) {
@@ -18,10 +18,15 @@ export const getProductPrice = productData => {
     if (priceToReturn) {
       return (
         <View style={styles.productPriceContainer}>
-          <Text style={styles.productMainText}>
+          <Text style={[styles.productMainText, styleOverride]}>
             {formatPrice(priceToReturn)}
           </Text>
-          <Text style={[styles.productMainText, styles.productDiscountedText]}>
+          <Text
+            style={[
+              styles.productMainText,
+              styles.productDiscountedText,
+              styleOverride,
+            ]}>
             {formatPrice(productData.price)}
           </Text>
         </View>
@@ -32,5 +37,7 @@ export const getProductPrice = productData => {
   }
 
   priceToReturn = priceToReturn ? formatPrice(priceToReturn) : 'Free';
-  return <Text style={styles.productMainText}>{priceToReturn}</Text>;
+  return (
+    <Text style={[styles.productMainText, styleOverride]}>{priceToReturn}</Text>
+  );
 };

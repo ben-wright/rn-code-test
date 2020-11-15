@@ -5,6 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Info from './Info';
 import Market from './Market';
 import SingleProduct from './SingleProduct';
+import Settings from './Settings';
 
 const HomeTabs = createBottomTabNavigator();
 const MarketStack = createStackNavigator();
@@ -37,6 +38,8 @@ const Home = () => {
             iconName = 'info';
           } else if (route.name === 'Market') {
             iconName = 'shopping-cart';
+          } else if (route.name === 'Settings') {
+            iconName = 'settings';
           }
 
           // You can return any component that you like here!
@@ -49,6 +52,7 @@ const Home = () => {
       }}>
       <HomeTabs.Screen name="Info" component={Info} />
       <HomeTabs.Screen name="Market" component={MarketStackComp} />
+      <HomeTabs.Screen name="Settings" component={Settings} />
     </HomeTabs.Navigator>
   );
 };
