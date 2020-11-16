@@ -25,6 +25,12 @@ public class ServiceKey extends ReactContextBaseJavaModule {
         callback.invoke(serviceKey);
     }
 
+    @ReactMethod
+    public void getReleaseServiceKey(Callback callback) {
+        String serviceKey = reactContext.getResources().getString(R.string.release_service_key);
+        callback.invoke(serviceKey);
+    }
+
     @Override
     public String getName() {
         return "ServiceKey";

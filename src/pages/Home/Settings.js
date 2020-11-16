@@ -6,9 +6,15 @@ const Settings = () => {
   const [serviceKey, setSerivceKey] = useState('');
 
   if (Platform.OS === 'ios' || Platform.OS === 'android') {
-    NativeModules.ServiceKey.getServiceKey(serviceKeyFromNative => {
-      setSerivceKey(serviceKeyFromNative);
-    });
+    if (__DEV__) {
+      NativeModules.ServiceKey.getServiceKey(serviceKeyFromNative => {
+        setSerivceKey(serviceKeyFromNative);
+      });
+    } else {
+      NativeModules.ServiceKey.getReleaseServiceKey(serviceKeyFromNative => {
+        setSerivceKey(serviceKeyFromNative);
+      });
+    }
   }
 
   return (

@@ -14,10 +14,14 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(getServiceKey:(RCTResponseSenderBlock)callback)
 {
-  NSString* paramValue = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"SERVICE_KEY"];
-  if(paramValue == nil)
-    paramValue = @"";
-  callback(@[paramValue]);
+  NSString* serviceKey = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"SERVICE_KEY"];
+  callback(@[serviceKey]);
+}
+
+RCT_EXPORT_METHOD(getReleaseServiceKey:(RCTResponseSenderBlock)callback)
+{
+  NSString* serviceKey = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"RELEASE_SERVICE_KEY"];
+  callback(@[serviceKey]);
 }
 
 @end
