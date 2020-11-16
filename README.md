@@ -1,3 +1,7 @@
+## Setup (Fix ios 14 images)
+
+To fix images on ios: run `yarn` then `npx react-native-fix-image`
+
 # RN Test Spec.
 
 ### Create a new component called `Product`.
